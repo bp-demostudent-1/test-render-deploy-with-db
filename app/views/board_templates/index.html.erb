@@ -1,0 +1,43 @@
+<h1>
+  List of all boards
+</h1>
+
+<hr>
+
+<article>
+  <header>
+    <h2>
+      Add a new board
+    </h2>
+  </header>
+
+  <form action="/insert_board" method="post">
+    <div>
+      <label for="name_box">
+        Name
+      </label>
+
+      <input type="text" id="name_box" name="query_name">
+    </div>
+
+    <button type="submit">
+      Create board
+    </button>
+  </form>
+</article>
+
+<hr>
+
+<article>
+  <ul>
+    <% @list_of_boards.each do |a_board| %>
+      <li>
+        <a href="/boards/<%= a_board.id %>">
+          <%= a_board.name %> (with <%= a_board.listings.count %> listings)
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</article>
+
+<hr>
