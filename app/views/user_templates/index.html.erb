@@ -1,0 +1,51 @@
+<h1>
+  List of all users
+</h1>
+
+<hr>
+
+<article>
+  <header>
+    <h2>
+      Add a new user
+    </h2>
+  </header>
+
+  <form action="/insert_user" method="post">
+    <div>
+      <label for="first_name_box">
+        First name
+      </label>
+
+      <input type="text" id="first_name_box" name="query_first_name">
+    </div>
+
+    <div>
+      <label for="last_name_box">
+        Last name
+      </label>
+
+      <input type="text" id="last_name_box" name="query_last_name">
+    </div>
+
+    <button type="submit">
+      Create user
+    </button>
+  </form>
+</article>
+
+<hr>
+
+<article>
+  <ul>
+    <% @list_of_users.each do |a_user| %>
+      <li>
+        <a href="/users/<%= a_user.id %>">
+          User #<%= a_user.id %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</article>
+
+<hr>
