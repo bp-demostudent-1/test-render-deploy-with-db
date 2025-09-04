@@ -12,7 +12,8 @@
 
 ActiveRecord::Schema[8.0].define(version: 2025_09_04_191218) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_catalog.plpgsql"
+  # Xata (production) has this enabled by default
+  enable_extension "pg_catalog.plpgsql" unless ENV["DATABASE_URL"]&.include?("xata.sh")
 
   create_table "boards", force: :cascade do |t|
     t.string "name"
